@@ -1,0 +1,62 @@
+
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Oyun Merkezi</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:#0b1020;color:white;font-family:Arial,sans-serif}
+header{background:#151d33;padding:22px 7%;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+.logo{font-size:25px;font-weight:bold;color:#65e4ff}
+nav a{color:white;text-decoration:none;margin:0 10px}
+.hero{text-align:center;padding:65px 20px;background:linear-gradient(135deg,#172554,#312e81)}
+.hero h1{font-size:42px;margin:0 0 15px}
+.hero p{color:#d1d5ff}
+button,.btn{border:0;border-radius:9px;padding:12px 18px;background:#54d7f5;color:#08111e;font-weight:bold;cursor:pointer;text-decoration:none}
+main{max-width:1100px;margin:auto;padding:30px 20px}
+input,select{padding:12px;border-radius:8px;border:1px solid #384563;background:#151d33;color:white}
+input{width:100%;margin-bottom:20px}
+.games{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px}
+.card{background:#151d33;border:1px solid #273653;border-radius:15px;padding:22px}
+.emoji{font-size:48px}
+.card p{color:#bac5dc;line-height:1.5}
+.tag{color:#65e4ff;font-size:13px}
+footer{text-align:center;padding:30px;color:#9ca3af}
+</style>
+</head>
+<body>
+<header>
+<div class="logo">🎮 OYUN MERKEZİ</div>
+<nav><a href="#oyunlar">Oyunlar</a><a href="#projeler">Projeler</a><a href="#hakkinda">Hakkımızda</a></nav>
+</header>
+<section class="hero">
+<h1>Oyun Dünyana Hoş Geldin!</h1>
+<p>Oyunları keşfet, projelerini tanıt ve yeni şeyler paylaş.</p>
+<button onclick="document.getElementById('oyunlar').scrollIntoView({behavior:'smooth'})">Oyunları Keşfet</button>
+</section>
+<main>
+<h2 id="oyunlar">🎯 Oyunlar</h2>
+<input id="search" placeholder="Oyun veya proje ara..." oninput="filterCards()">
+<div class="games" id="gameList">
+<div class="card"><div class="emoji">⚔️</div><span class="tag">AKSİYON</span><h3>Kılıç Savaşı</h3><p>Bu alana kendi aksiyon oyunumuzun açıklamasını ekleyeceğiz.</p><button onclick="alert('Bu oyun henüz eklenmedi!')">İncele</button></div>
+<div class="card"><div class="emoji">🏎️</div><span class="tag">YARIŞ</span><h3>Hız Dünyası</h3><p>Yarış oyunları ve hız tutkunları için proje alanı.</p><button onclick="alert('Bu oyun henüz eklenmedi!')">İncele</button></div>
+<div class="card"><div class="emoji">🧱</div><span class="tag">SANDBOX</span><h3>Blok Evreni</h3><p>Kendi dünyanı kurabileceğin projeler için bir alan.</p><button onclick="alert('Bu oyun henüz eklenmedi!')">İncele</button></div>
+</div>
+<h2 id="projeler" style="margin-top:45px">🛠️ Projeler ve Dosyalar</h2>
+<div class="card"><h3>Proje alanı</h3><p>Yakında oyun projeleri, HTML dosyaları ve geliştirici çalışmaları burada listelenecek.</p></div>
+<h2 id="hakkinda" style="margin-top:35px">ℹ️ Hakkımızda</h2>
+<p>Oyunları ve yaratıcı projeleri bir araya getiren bağımsız oyun platformu.</p>
+</main>
+<footer>© 2026 Oyun Merkezi · Bağımsız oyun topluluğu</footer>
+<script>
+function filterCards(){
+const q=document.getElementById('search').value.toLocaleLowerCase('tr');
+document.querySelectorAll('#gameList .card').forEach(card=>{
+card.style.display=card.innerText.toLocaleLowerCase('tr').includes(q)?'block':'none';
+});
+}
+</script>
+</body>
+</html>
